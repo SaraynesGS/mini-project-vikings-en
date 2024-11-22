@@ -58,14 +58,16 @@ class War():
     
     def vikingAttack(self):
         random_saxon = random.choice(self.saxonArmy)
-        result_viking_attack = random_saxon.receiveDamage(random.choice(self.vikingArmy).strength)
+        random_viking = random.choice(self.vikingArmy)
+        result_viking_attack = random_saxon.receiveDamage(random_viking.strength)
         if random_saxon.health <= 0:
             self.saxonArmy.remove(random_saxon)
         return result_viking_attack    
 
     def saxonAttack(self):
         random_viking = random.choice(self.vikingArmy)
-        result_saxon_attack = random_viking.receiveDamage(random.choice(self.saxonArmy).strength)
+        random_saxon = random.choice(self.saxonArmy)
+        result_saxon_attack = random_viking.receiveDamage(random_saxon.strength)
         if random_viking.health <= 0:
             self.vikingArmy.remove(random_viking)
         return result_saxon_attack    
